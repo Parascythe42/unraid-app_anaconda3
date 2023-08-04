@@ -5,24 +5,26 @@
     <Registry>https://hub.docker.com/r/continuumio/anaconda3</Registry>
     <Network>bridge</Network>
     <MyIP />
-    <Shell>sh</Shell>
+    <Shell>bash</Shell>
     <Privileged>false</Privileged>
     <Support />
     <Project>https://github.com/ContinuumIO/docker-images</Project>
     <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
         Dockerhub.&#xD;
         &#xD;
+        Once finished, open the token-link shown in the LOG. &#xD;
+        &#xD;
         After installation, it runs the following command, which is also listed under
         continuumio/anaconda3 (tested for tag: 2023.07-1):&#xD;
         &#xD;
         ```&#xD;
-        conda install jupyter -y --quiet &amp;amp;&amp;amp; \&#xD;
-        mkdir -p /opt/notebooks &amp;amp;&amp;amp; \&#xD;
-        jupyter notebook \&#xD;
-        --notebook-dir=/opt/notebooks \&#xD;
-        --ip='*' \&#xD;
-        --port=8888 \&#xD;
-        --no-browser \&#xD;
+        conda install jupyter -y --quiet &amp;amp;&amp;amp; &#xD;
+        mkdir -p /opt/notebooks &amp;amp;&amp;amp; &#xD;
+        jupyter notebook &#xD;
+        --notebook-dir=/opt/notebooks &#xD;
+        --ip='*' &#xD;
+        --port=8888 &#xD;
+        --no-browser &#xD;
         --allow-root&#xD;
         ```&#xD;
         &#xD;
@@ -35,15 +37,18 @@
     <ExtraParams />
     <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
         /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
-        --port=8888 --no-browser --allow-root"</PostArgs>
+        --port=8888 --no-browser --allow-root --NotebookApp.token=''
+        --NotebookApp.password=$NOTEBOOK_PASSWORD"</PostArgs>
     <CPUset />
-    <DateInstalled>1691169194</DateInstalled>
+    <DateInstalled>1691173206</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
     <Config Name="WebUI" Target="8888" Default="8888" Mode="tcp" Description="" Type="Port"
-        Display="always" Required="false" Mask="false">8888</Config>
+        Display="always" Required="true" Mask="false">8888</Config>
     <Config Name="Notebooks" Target="/opt/notebooks" Default="/mnt/user/appdata/anaconda3/notebooks"
-        Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">
+        Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">
         /mnt/user/appdata/anaconda3/notebooks</Config>
+    <Config Name="Password" Target="NOTEBOOK_PASSWORD" Default="password" Mode="" Description=""
+        Type="Variable" Display="always" Required="true" Mask="true">password</Config>
 </Container>
