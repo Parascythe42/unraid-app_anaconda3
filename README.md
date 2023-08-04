@@ -1,2 +1,3 @@
-# unraid-app_anaconda3
-Default template for Anaconda3
+# Anaconda3 for Unraid
+
+This template install Anaconda 3 based on the official [container](https://hub.docker.com/r/continuumio/anaconda3) on Dockerhub:
