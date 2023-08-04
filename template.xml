@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Anaconda3</Name>
+    <Repository>continuumio/anaconda3</Repository>
+    <Registry>https://hub.docker.com/r/continuumio/anaconda3</Registry>
+    <Network>bridge</Network>
+    <MyIP />
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support />
+    <Project>https://github.com/ContinuumIO/docker-images</Project>
+    <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
+        Dockerhub.&#xD;
+        &#xD;
+        After installation, it runs the following command, which is also listed under
+        continuumio/anaconda3 (tested for tag: 2023.07-1):&#xD;
+        &#xD;
+        ```&#xD;
+        conda install jupyter -y --quiet &amp;amp;&amp;amp; \&#xD;
+        mkdir -p /opt/notebooks &amp;amp;&amp;amp; \&#xD;
+        jupyter notebook \&#xD;
+        --notebook-dir=/opt/notebooks \&#xD;
+        --ip='*' \&#xD;
+        --port=8888 \&#xD;
+        --no-browser \&#xD;
+        --allow-root&#xD;
+        ```&#xD;
+        &#xD;
+        This code is passed as a post argument and may be changed if needed.</Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:8888]</WebUI>
+    <TemplateURL />
+    <Icon>https://avatars.githubusercontent.com/u/1158637</Icon>
+    <ExtraParams />
+    <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
+        /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
+        --port=8888 --no-browser --allow-root"</PostArgs>
+    <CPUset />
+    <DateInstalled>1691169194</DateInstalled>
+    <DonateText />
+    <DonateLink />
+    <Requires />
+    <Config Name="WebUI" Target="8888" Default="8888" Mode="tcp" Description="" Type="Port"
+        Display="always" Required="false" Mask="false">8888</Config>
+    <Config Name="Notebooks" Target="/opt/notebooks" Default="/mnt/user/appdata/anaconda3/notebooks"
+        Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">
+        /mnt/user/appdata/anaconda3/notebooks</Config>
+</Container>
