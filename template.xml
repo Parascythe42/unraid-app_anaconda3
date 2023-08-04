@@ -10,25 +10,25 @@
     <Support />
     <Project>https://github.com/ContinuumIO/docker-images</Project>
     <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
-        Dockerhub.&#xD;
-        &#xD;
-        Once finished, open the token-link shown in the LOG. &#xD;
-        &#xD;
-        After installation, it runs the following command, which is also listed under
-        continuumio/anaconda3 (tested for tag: 2023.07-1):&#xD;
-        &#xD;
-        ```&#xD;
-        conda install jupyter -y --quiet &amp;amp;&amp;amp; &#xD;
-        mkdir -p /opt/notebooks &amp;amp;&amp;amp; &#xD;
-        jupyter notebook &#xD;
-        --notebook-dir=/opt/notebooks &#xD;
-        --ip='*' &#xD;
-        --port=8888 &#xD;
-        --no-browser &#xD;
-        --allow-root&#xD;
-        ```&#xD;
-        &#xD;
-        This code is passed as a post argument and may be changed if needed.</Overview>
+        Dockerhub.
+
+        After its installation, this container runs the following command:
+
+        ```
+        conda install jupyter -y --quiet &amp;&amp; &bsol;
+        mkdir -p /opt/notebooks &amp;&amp; &bsol;
+        jupyter notebook &bsol;
+        --notebook-dir=/opt/notebooks &bsol;
+        --ip='*' &bsol;
+        --port=8888 &bsol;
+        --no-browser &bsol;
+        --allow-root &bsol;
+        --NotebookApp.token='' &bsol;
+        --NotebookApp.password=$NOTEBOOK_PASSWORD"
+        ```
+
+        This code is provided by continuumio/anaconda3 (tested for tag: 2023.07-1) and passes two
+        additional post arguments to disable token and set a password as outlined below.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8888]</WebUI>
     <TemplateURL />
