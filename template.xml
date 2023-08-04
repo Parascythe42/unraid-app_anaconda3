@@ -30,7 +30,8 @@
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8888]</WebUI>
     <TemplateURL />
-    <Icon>https://avatars.githubusercontent.com/u/1158637</Icon>
+    <Icon>
+        https://github.com/Muxelmann/unraid-app_anaconda3/blob/main/media/anaconda3-icon.png?raw=true</Icon>
     <ExtraParams />
     <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
         /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
