@@ -2,45 +2,48 @@
 <Container version="2">
     <Name>Anaconda3</Name>
     <Repository>continuumio/anaconda3</Repository>
-    <Registry>https://hub.docker.com/r/continuumio/anaconda3</Registry>
+    <Registry>https://hub.docker.com/r/muxelmann/anaconda3</Registry>
     <Network>bridge</Network>
     <MyIP />
     <Shell>bash</Shell>
     <Privileged>false</Privileged>
     <Support />
-    <Project>https://github.com/ContinuumIO/docker-images</Project>
+    <Project />
     <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
-        Dockerhub.
-
-        After its installation, this container runs the following command:
-
-        ```
-        conda install jupyter -y --quiet &amp;&amp; &bsol;
-        mkdir -p /opt/notebooks &amp;&amp; &bsol;
-        jupyter notebook &bsol;
-        --notebook-dir=/opt/notebooks &bsol;
-        --ip='*' &bsol;
-        --port=8888 &bsol;
-        --no-browser &bsol;
-        --allow-root &bsol;
-        --NotebookApp.token='' &bsol;
-        --NotebookApp.password=$NOTEBOOK_PASSWORD"
-        ```
-
-        This code is provided by continuumio/anaconda3 (tested for tag: 2023.07-1) and passes two
-        additional post arguments to disable token and set a password as outlined below.</Overview>
+        Dockerhub.&#xD;
+        &#xD;
+        Once finished, open the token-link shown in the LOG. &#xD;
+        &#xD;
+        After installation, it runs the following command:&#xD;
+        &#xD;
+        ```&#xD;
+        conda install jupyter -y --quiet &amp;amp;&amp;amp; \&#xD;
+        mkdir -p /opt/notebooks &amp;amp;&amp;amp; \&#xD;
+        jupyter notebook \&#xD;
+        --notebook-dir=/opt/notebooks \&#xD;
+        --ip='*' \&#xD;
+        --port=8888 \&#xD;
+        --no-browser \&#xD;
+        --allow-root \&#xD;
+        --NotebookApp.token='' \&#xD;
+        --NotebookApp.password=''&#xD;
+        ```&#xD;
+        &#xD;
+        The first part of this command is also listed under continuumio/anaconda3 (tested for tag:
+        2023.07-1) and the last two lines are addded to avoid issues with token and password
+        requirements. This makes the notebook server "open", which is why it's recommedned to
+        implement additional security/authentication measures.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8888]</WebUI>
     <TemplateURL />
     <Icon>
         https://github.com/Muxelmann/unraid-app_anaconda3/blob/main/media/anaconda3-icon.png?raw=true</Icon>
     <ExtraParams />
-    <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
-        /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
-        --port=8888 --no-browser --allow-root --NotebookApp.token=''
-        --NotebookApp.password=$NOTEBOOK_PASSWORD"</PostArgs>
+    <PostArgs>conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p /opt/notebooks
+        &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888
+        --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''</PostArgs>
     <CPUset />
-    <DateInstalled>1691173206</DateInstalled>
+    <DateInstalled>1691409342</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
@@ -49,6 +52,4 @@
     <Config Name="Notebooks" Target="/opt/notebooks" Default="/mnt/user/appdata/anaconda3/notebooks"
         Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">
         /mnt/user/appdata/anaconda3/notebooks</Config>
-    <Config Name="Password" Target="NOTEBOOK_PASSWORD" Default="password" Mode="" Description=""
-        Type="Variable" Display="always" Required="true" Mask="true">password</Config>
 </Container>
