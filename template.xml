@@ -12,38 +12,21 @@
     <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
         Dockerhub.&#xD;
         &#xD;
-        Once finished, open the token-link shown in the LOG. &#xD;
-        &#xD;
-        After installation, it runs the following command:&#xD;
-        &#xD;
-        ```&#xD;
-        conda install jupyter -y --quiet &amp;amp;&amp;amp; \&#xD;
-        mkdir -p /opt/notebooks &amp;amp;&amp;amp; \&#xD;
-        jupyter notebook \&#xD;
-        --notebook-dir=/opt/notebooks \&#xD;
-        --ip='*' \&#xD;
-        --port=8888 \&#xD;
-        --no-browser \&#xD;
-        --allow-root \&#xD;
-        --NotebookApp.token='' \&#xD;
-        --NotebookApp.password=''&#xD;
-        ```&#xD;
-        &#xD;
-        The first part of this command is also listed under continuumio/anaconda3 (tested for tag:
-        2023.07-1) and the last two lines are addded to avoid issues with token and password
-        requirements. This makes the notebook server "open", which is why it's recommedned to
-        implement additional security/authentication measures.</Overview>
+        It runs the commands is also listed under continuumio/anaconda3 (tested for tag: 2023.07-1)
+        with the addition of `--NotebookApp.token=''` to disable the token requirement. This makes
+        the notebook server somewhat "open", which is why it's recommedned to implement additional
+        security/authentication measures.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8888]</WebUI>
     <TemplateURL />
     <Icon>
         https://github.com/Muxelmann/unraid-app_anaconda3/blob/main/media/anaconda3-icon.png?raw=true</Icon>
     <ExtraParams />
-    <PostArgs>conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p /opt/notebooks
-        &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888
-        --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''</PostArgs>
+    <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
+        /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
+        --port=8888 --no-browser --allow-root --NotebookApp.token=''"</PostArgs>
     <CPUset />
-    <DateInstalled>1691409342</DateInstalled>
+    <DateInstalled>1691410349</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
