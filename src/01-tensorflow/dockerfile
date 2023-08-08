@@ -1,0 +1,3 @@
+FROM muxelmann/anaconda3:default
+
+RUN conda install -y --quiet tensorflow

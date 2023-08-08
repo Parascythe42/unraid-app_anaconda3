@@ -1,0 +1,3 @@
+FROM muxelmann/anaconda3:tensorflow
+
+RUN conda install -y --quiet keras

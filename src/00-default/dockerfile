@@ -1,0 +1,24 @@
+FROM continuumio/anaconda3
+
+USER root
+
+ENV NOTEBOOK_DIR=/opt/notebooks \
+    NOTEBOOK_IP='*' \
+    NOTEBOOK_PORT=8888
+
+# RUN apt-get update -qq && \
+#     apt-get install --no-install-recommends -y \
+#     xxx && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
+RUN conda install -y --quiet jupyter && \
+    mkdir -p ${NOTEBOOK_DIR}
+
+CMD jupyter notebook \
+    --notebook-dir=${NOTEBOOK_DIR} \
+    --ip=${NOTEBOOK_IP} \
+    --port=${NOTEBOOK_PORT} \
+    --NotebookApp.token='' \
+    --no-browser \
+    --allow-root
