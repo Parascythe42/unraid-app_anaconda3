@@ -23,7 +23,7 @@
     <Shell>bash</Shell>
     <Privileged>false</Privileged>
     <Support />
-    <Project />
+    <Project>https://github.com/Muxelmann/unraid-app_anaconda3/tree/main</Project>
     <Overview>This installs Anaconda 3 with Jupyter Notebook installed and is based on the Image
         published by Continuum Analytics on Dockerhub - but without having to call the install code
         listed there.&#xD;
@@ -40,7 +40,7 @@
     <ExtraParams />
     <PostArgs />
     <CPUset />
-    <DateInstalled>1691483658</DateInstalled>
+    <DateInstalled>1691484038</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
