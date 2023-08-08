@@ -1,7 +1,22 @@
 <?xml version="1.0"?>
 <Container version="2">
     <Name>Anaconda3</Name>
-    <Repository>continuumio/anaconda3</Repository>
+    <Repository>muxelmann/anaconda3:default</Repository>
+    <Branch>
+        <Tag>default</Tag>
+        <TagDescription>The default Image of Anaconda 3 only with Jupyter Notebook</TagDescription>
+        <Repository>muxelmann/anaconda3:default</Repository>
+    </Branch>
+    <Branch>
+        <Tag>tensorflow</Tag>
+        <TagDescription>Same as the default image, but with Tensorflow installed</TagDescription>
+        <Repository>muxelmann/anaconda3:tensorflow</Repository>
+    </Branch>
+    <Branch>
+        <Tag>keras</Tag>
+        <TagDescription>Same as the tensorflow image, but with Keras installed, too</TagDescription>
+        <Repository>muxelmann/anaconda3:keras</Repository>
+    </Branch>
     <Registry>https://hub.docker.com/r/muxelmann/anaconda3</Registry>
     <Network>bridge</Network>
     <MyIP />
@@ -9,24 +24,23 @@
     <Privileged>false</Privileged>
     <Support />
     <Project />
-    <Overview>This installs the Anaconda 3 Docker as published by Continuum Analytics on
-        Dockerhub.&#xD;
+    <Overview>This installs Anaconda 3 with Jupyter Notebook installed and is based on the Image
+        published by Continuum Analytics on Dockerhub - but without having to call the install code
+        listed there.&#xD;
         &#xD;
-        It runs the commands is also listed under continuumio/anaconda3 (tested for tag: 2023.07-1)
-        with the addition of `--NotebookApp.token=''` to disable the token requirement. This makes
-        the notebook server somewhat "open", which is why it's recommedned to implement additional
-        security/authentication measures.</Overview>
+        In addition to the commands listed for the underlying Image (continuumio/anaconda3) the
+        additional argument `--NotebookApp.token=''` is passed to disable the token requirement.
+        This makes the notebook server somewhat "open", which is why it's recommedned to implement
+        additional security/authentication measures.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8888]</WebUI>
     <TemplateURL />
     <Icon>
         https://github.com/Muxelmann/unraid-app_anaconda3/blob/main/media/anaconda3-icon.png?raw=true</Icon>
     <ExtraParams />
-    <PostArgs>/bin/bash -c "conda install jupyter -y --quiet &amp;amp;&amp;amp; mkdir -p
-        /opt/notebooks &amp;amp;&amp;amp; jupyter notebook --notebook-dir=/opt/notebooks --ip='*'
-        --port=8888 --no-browser --allow-root --NotebookApp.token=''"</PostArgs>
+    <PostArgs />
     <CPUset />
-    <DateInstalled>1691410349</DateInstalled>
+    <DateInstalled>1691483658</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
