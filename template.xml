@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
     <Name>Anaconda3</Name>
-    <Repository>muxelmann/anaconda3:default</Repository>
+    <Repository>muxelmann/anaconda3</Repository>
     <Branch>
         <Tag>default</Tag>
         <TagDescription>The default Image of Anaconda 3 only with Jupyter Notebook</TagDescription>
@@ -40,7 +40,7 @@
     <ExtraParams />
     <PostArgs />
     <CPUset />
-    <DateInstalled>1691484038</DateInstalled>
+    <DateInstalled>1691987394</DateInstalled>
     <DonateText />
     <DonateLink />
     <Requires />
