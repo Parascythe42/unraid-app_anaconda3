@@ -5,7 +5,15 @@ DOCKERHUB_USER=muxelmann
 BUILD_PLATFORMS=linux/arm64/v8,linux/amd64
 
 # Make sure we can build for multiple architectures
-# docker buildx create --use desktop-linux
+docker buildx create --use desktop-linux
+
+# Build the `latest` tag before special branches
+docker buildx build \
+    --file 00-default/dockerfile \
+    --push \
+    --platform ${BUILD_PLATFORMS} \
+    --tag ${DOCKERHUB_USER}/anaconda3 \
+    .
 
 for directory in */ ; do
     tag=${directory%/}
