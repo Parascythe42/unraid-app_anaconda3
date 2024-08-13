@@ -16,6 +16,8 @@ ENV NOTEBOOK_DIR=/opt/notebooks \
 RUN conda install -y --quiet jupyter && \
     mkdir -p ${NOTEBOOK_DIR}
 
+RUN conda config --append channels conda-forge
+
 CMD jupyter notebook \
     --notebook-dir=${NOTEBOOK_DIR} \
     --ip=${NOTEBOOK_IP} \
