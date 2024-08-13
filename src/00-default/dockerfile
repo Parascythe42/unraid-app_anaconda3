@@ -4,7 +4,8 @@ USER root
 
 ENV NOTEBOOK_DIR=/opt/notebooks \
     NOTEBOOK_IP='*' \
-    NOTEBOOK_PORT=8888
+    NOTEBOOK_PORT=8888 \
+    JUPYTER_TOKEN=''
 
 # RUN apt-get update -qq && \
 #     apt-get install --no-install-recommends -y \
@@ -19,6 +20,6 @@ CMD jupyter notebook \
     --notebook-dir=${NOTEBOOK_DIR} \
     --ip=${NOTEBOOK_IP} \
     --port=${NOTEBOOK_PORT} \
-    --NotebookApp.token='' \
+    --NotebookApp.token=${JUPYTER_TOKEN} \
     --no-browser \
     --allow-root
